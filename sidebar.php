@@ -86,5 +86,24 @@
 					<?php } wp_reset_query();?>
 				</div>
 			</div>
-
+           
+		
+		
+		        <div class="new">
+				<div class="c-t">Categories</div>
+				<div class="c-c">
+					<?php 
+					$args = array(
+                                        'orderby' => 'slug',
+                                        'parent' => 0
+                                         );
+					$categories = get_categories( $args );
+                                        foreach ( $categories as $category ) {
+                                           echo '<li class="n-c"><a href="';
+                                           echo get_category_link($category->term_id);
+                                           echo '" rel="bookmark">'.$category->name.'</a></li>';
+                                        }
+				        ?>
+			       </div>
+			</div>
 		</div>
